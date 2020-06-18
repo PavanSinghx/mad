@@ -83,7 +83,6 @@ namespace InstagramCommentScraper
                 {
                     Log(e.Message);
                     driver.Quit();
-             
                 }
 
                 Thread.Sleep(1000 * 25);

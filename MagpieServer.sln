@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagpieServer", "MagpieServer\MagpieServer.csproj", "{574B86E3-1CD1-488E-8D18-5BDB89C1FACD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{574B86E3-1CD1-488E-8D18-5BDB89C1FACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{574B86E3-1CD1-488E-8D18-5BDB89C1FACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{574B86E3-1CD1-488E-8D18-5BDB89C1FACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{574B86E3-1CD1-488E-8D18-5BDB89C1FACD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C31D01C6-2020-4757-97DD-710C829538F5}
+	EndGlobalSection
+EndGlobal

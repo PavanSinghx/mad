@@ -45,6 +45,8 @@ namespace InstagramCommentScraper
 
                     var json = result.Split("window._sharedData = ")[1].Split(";</script>")[0];
 
+                    Log(json);
+
                     Log("Split done");
 
                     var items = JsonConvert.DeserializeObject<ExploreModel>(json);

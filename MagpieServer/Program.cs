@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace InstagramCommentScraper
 {
@@ -18,27 +19,22 @@ namespace InstagramCommentScraper
         {
             var postCount = 19;
             ChromeDriver driver = null;
+            var chromeOptions = new ChromeOptions();
+
+            Log("Post count " + postCount);
+
+            // chromeOptions.AddArguments("headless");
+            chromeOptions.AddArgument("no-sandbox");
+
+            driver = new ChromeDriver(chromeOptions);
+
+            chromeOptions.AddArgument(@"user-data-dri=C:\Users\Administrator\AppData\Local\Google\Chrome\User Data\Profile 1\");
 
             while (true)
             {
                 try
                 {
-                    var pr = GetProxy();
 
-                    //RandomNumber(5000000, 8000000);
-
-                    var chromeOptions = new ChromeOptions();
-
-                    Log("Post count " + postCount);
-
-                    chromeOptions.AddArguments("headless");
-                    chromeOptions.AddArgument("no-sandbox");
-                    chromeOptions.Proxy = new Proxy();
-                    chromeOptions.Proxy.HttpProxy = "zproxy.lum-superproxy.io:22225";
-                    chromeOptions.Proxy.SocksUserName = "lum-customer-hl_eb9f8420-zone-static-ip-181.214.179.208";
-                    chromeOptions.Proxy.SocksPassword = "29gqn7d916xf";
-
-                    driver = new ChromeDriver(chromeOptions);
 
                     Log("Starting chrome");
 
@@ -88,12 +84,12 @@ namespace InstagramCommentScraper
                         }
                     }
 
-                    driver.Quit();
+                    //driver.Quit();
                 }
                 catch (Exception e)
                 {
                     Log(e.Message);
-                    driver.Quit();
+                    //driver.Quit();
                 }
 
                 Thread.Sleep(1000 * 25);

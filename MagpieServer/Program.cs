@@ -25,17 +25,14 @@ namespace InstagramCommentScraper
 
             // chromeOptions.AddArguments("headless");
             chromeOptions.AddArgument("no-sandbox");
+            chromeOptions.AddArgument(@"user-data-dri=C:\Users\Administrator\AppData\Local\Google\Chrome\User Data\Profile 1\");
 
             driver = new ChromeDriver(chromeOptions);
-
-            chromeOptions.AddArgument(@"user-data-dri=C:\Users\Administrator\AppData\Local\Google\Chrome\User Data\Profile 1\");
 
             while (true)
             {
                 try
                 {
-
-
                     Log("Starting chrome");
 
                     Log("Moving to url");

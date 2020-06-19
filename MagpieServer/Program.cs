@@ -47,8 +47,6 @@ namespace InstagramCommentScraper
 
                     var json = result.Split("window._sharedData = ")[1].Split(";</script>")[0];
 
-                    Log(json);
-
                     Log("Split done");
 
                     var items = JsonConvert.DeserializeObject<ExploreModel>(json);
@@ -74,6 +72,9 @@ namespace InstagramCommentScraper
                             var code = latest.node.shortcode;
 
                             Log(code);
+
+                            var client = new HttpClient();
+                            var t = client.GetStringAsync("http://jime.co.za/mad/mad.php?code=" + code).Result;
                         }
                         catch (Exception e)
                         {

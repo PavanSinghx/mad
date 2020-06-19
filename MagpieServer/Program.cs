@@ -17,7 +17,7 @@ namespace InstagramCommentScraper
     {
         static void Main(string[] args)
         {
-            var postCount = 19;
+            var postCount = 33;
             ChromeDriver driver = null;
             var chromeOptions = new ChromeOptions();
 
@@ -37,7 +37,7 @@ namespace InstagramCommentScraper
 
                     Log("Moving to url");
 
-                    driver.Url = "https://www.instagram.com/modlium";
+                    driver.Url = "https://www.instagram.com/mad_magpie_rough_gems";
 
                     Log("url loaded");
 

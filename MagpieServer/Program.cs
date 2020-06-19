@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.Compression;
+using System.Net;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Threading;
@@ -22,12 +23,20 @@ namespace InstagramCommentScraper
             {
                 try
                 {
+                    var pr = GetProxy();
+
+                    //RandomNumber(5000000, 8000000);
+
                     var chromeOptions = new ChromeOptions();
 
                     Log("Post count " + postCount);
 
                     chromeOptions.AddArguments("headless");
                     chromeOptions.AddArgument("no-sandbox");
+                    chromeOptions.Proxy = new Proxy();
+                    chromeOptions.Proxy.HttpProxy = "zproxy.lum-superproxy.io:22225";
+                    chromeOptions.Proxy.SocksUserName = "lum-customer-hl_eb9f8420-zone-static-ip-181.214.179.208";
+                    chromeOptions.Proxy.SocksPassword = "29gqn7d916xf";
 
                     driver = new ChromeDriver(chromeOptions);
 
@@ -103,5 +112,17 @@ namespace InstagramCommentScraper
             Console.WriteLine(msg);
         }
 
+
+        static IWebProxy GetProxy()
+        {
+            Console.WriteLine("To enable your free eval account and get CUSTOMER, "
+                + "YOURZONE and YOURPASS, please contact sales@luminati.io");
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+            var client = new WebClient();
+            client.Proxy = new WebProxy("zproxy.lum-superproxy.io:22225");
+            client.Proxy.Credentials = new NetworkCredential("lum-customer-hl_eb9f8420-zone-static-ip-181.214.179.208", "29gqn7d916xf");
+            Console.WriteLine(client.DownloadString("http://lumtest.com/myip.json"));
+            return client.Proxy;
+        }
     }
 }
